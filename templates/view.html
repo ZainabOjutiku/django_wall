@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Favorite_Book</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+</head>
+
+<body>
+    <div>
+        <nav class="navbar navbar-dark bg-dark text-white">
+            {% for user in users %}
+            <p class="blockquote mb-0 d-inline"> Welcome {{user['first_name']}} {{user['last_name']}}</p>
+            {%endfor%}
+            <form action="/users/destroy" method="POST" class="form-inline">
+                <button class="btn btn-outline-light ml-1 text-white my-1 my-sm-0 ml-6" type="submit">Log Out</button>
+            </form>
+        </nav>
+    </div>
+    <div class="container mt-5">
+  <div class="row">
+    {% for view_book in view_books %}
+    <div class="col">
+        <h5>{{view_book['title']}}</h5>
+         <p>Added by: {{view_book['first_name']}}</p>
+         <p>Added on: {{view_book['created_at']}}</p>
+         <p>Last updatedon: {{view_book['updated_at']}}</p>
+         <p>description : {{view_book['description']}}</p>
+    </div>
+    {% endfor %}
+    <div class="col">
+      <h5>Users who Liked This Book</h5>
+     <ul>
+         <li>frodo boggins</li>
+         <li>frodo boggins</li>
+
+     </ul>
+    </div>
+  </div>
+  </div>
+  
+</body>
+
+</html>
